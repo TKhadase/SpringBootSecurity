@@ -16,7 +16,8 @@ $(function(){
 </head>
 <body>
 <div id="header"></div>
-<h1 style="color:red; text-align:left">Student Portal</h1>
+<h1 style="color:red; text-align:left">Student Portal</h1> <BR>
+<h3 style="color:red; text-align:center">${NoAccess}</h3>
  <table>
  <tr>
 <td width="30%"></td> <td width="70%"><img src="img/student_habit.JPG"  height="40%" width="100%"> </td>

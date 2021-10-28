@@ -303,7 +303,13 @@ public class StudentController {
 		}
 	}
 	
+	@GetMapping("/accessDenied")
+	public String accessDeniedPage(Map<String, Object> map) {
+		map.put("NoAccess", "Sorry ! U Dont have acces this menu.");
+		return "home";
+	}
 
+	
 	@InitBinder
 	public void convertStudentDOB_initBinder(WebDataBinder binder) {
 		System.out.println("MyController.convertStudentDOB_initBinder()");
