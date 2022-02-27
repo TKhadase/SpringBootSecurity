@@ -27,6 +27,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -65,13 +66,9 @@ public class StudentController {
 	@Autowired
 	private StudentFormValidator studentFormValidatorObj;
 	
-	/*@Autowired
-	private Principal principal;*/
 
 	@GetMapping("/home")
 	public String showUserHomeSession() {
-		//System.out.println(" principal.getName() "+principal.getName());
-		System.out.println(" getAuthentication "+SecurityContextHolder.getContext().getAuthentication());
 		return "home";
 	}
 
@@ -97,7 +94,13 @@ public class StudentController {
 	}
 
 	@GetMapping("/header")
-	public String showheader() {
+	public String showheader(Map<String, Object> map) {
+		Authentication	auth =SecurityContextHolder.getContext().getAuthentication();
+		String authString =auth.getPrincipal().toString();
+		int nameIndex = authString.indexOf(" name=") ;
+	     authString = authString.substring(nameIndex+6 );
+	      String userString = authString.substring( 0,authString.indexOf(",") );
+		map.put("UserIdLogged",userString);
 		return "header";
 	}
 

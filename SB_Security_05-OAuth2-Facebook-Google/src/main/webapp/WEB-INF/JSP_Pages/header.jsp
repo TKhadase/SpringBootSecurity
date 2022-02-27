@@ -301,7 +301,7 @@ body {
                                     </ul>
                                 </li>
                                   
-                                <li style="float:right;"><a class="w3-blue" id="MenuContent_h1other" href="#">My Acount</a>   
+                                <li style="float:right;"><a class="w3-blue" id="MenuContent_h1other" href="#">${UserIdLogged}</a>   
                                     <ul>
                                         <li>
                                             <a id="MenuContent_h1ugcexam" href="pages/UGCNETExaminationCentre.aspx">My Profile</a> 
